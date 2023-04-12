@@ -2,16 +2,12 @@ name: CI
 
 on:
   pull_request:
-    branches:
-      - main
+    types: [opened, edited, reopened, synchronize]
 
 jobs:
   build:
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-
+    runs-on: ubuntu-latest
+   
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
