@@ -5,7 +5,7 @@ on:
     types: [opened, edited, reopened, synchronize]
 
 jobs:
-  spotless:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
