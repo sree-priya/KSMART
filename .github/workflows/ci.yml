@@ -28,7 +28,7 @@ jobs:
         
       - name: Check PR Title
         run: |
-          title=$(jq --raw-output .pull_request.title "$GITHUB_EVENT_PATH")
+          title=$(${{ github.event.pull_request.title }} "$GITHUB_EVENT_PATH")
           regex="PTX-.*: <title>"
           if [[ "$title" =~ $regex ]]; then
             echo "PR Title is valid"
