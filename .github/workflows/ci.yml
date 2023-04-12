@@ -19,16 +19,3 @@ jobs:
 
       - name: Run tests
         run: mvn test
-
-
-      - name: PR title checker
-      uses: EndBug/add-and-commit@v7
-      with:
-        author_name: "GitHub Actions"
-        author_email: "actions@github.com"
-        message: "PR title formatted correctly"
-        signoff: true
-        add: "README.md"
-        force: true
-        match: "regex"
-        regex: "PTX-\*: <title>"
