@@ -53,13 +53,18 @@
 				</configuration>
 			</plugin>
 			<plugin>
-			    <groupId>com.diffplug.spotless</groupId>
-			    <artifactId>spotless-maven-plugin</artifactId>
-			    <version>5.14.2</version>
-			    <configuration>
-				<!-- Spotless configuration goes here -->
-			    </configuration>
-        		</plugin>
+			      <groupId>com.diffplug.spotless</groupId>
+			      <artifactId>spotless-maven-plugin</artifactId>
+			      <version>5.13.0</version>
+			      <executions>
+				<execution>
+				  <phase>verify</phase>
+				  <goals>
+				    <goal>check</goal>
+				  </goals>
+				</execution>
+			      </executions>
+			</plugin>
 		</plugins>
 	</build>
 
