@@ -52,6 +52,14 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+			    <groupId>com.diffplug.spotless</groupId>
+			    <artifactId>spotless-maven-plugin</artifactId>
+			    <version>5.14.2</version>
+			    <configuration>
+				<!-- Spotless configuration goes here -->
+			    </configuration>
+        		</plugin>
 		</plugins>
 	</build>
 
