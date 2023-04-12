@@ -26,14 +26,16 @@ jobs:
 
         run: mvn test
         
-      - name: Verify PR title format
-        env:
-          PR_TITLE_REGEX: 'PTX-\d+: .*'
+      - name: Check PR Title
         run: |
-          if ! echo "${{ github.event.pull_request.title }}" | grep -E "${{ env.PR_TITLE_REGEX }}"; then
-            echo "Error: PR title does not match required format (${PR_TITLE_REGEX})" >&2
+          title=$(jq --raw-output .pull_request.title "$GITHUB_EVENT_PATH")
+          regex="PTX-.*: <title>"
+          if [[ "$title" =~ $regex ]]; then
+            echo "PR Title is valid"
+          else
+            echo "PR Title is invalid"
             exit 1
           fi
-        
+
         
  
