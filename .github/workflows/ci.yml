@@ -26,8 +26,6 @@ jobs:
               echo "Error: PR title does not match required format (${PR_TITLE_REGEX})" >&2
               exit 1
             fi
-  spotless:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run Spotless
-        run: mvn spotless:apply
+        - name: Run Spotless
+          run: mvn spotless:apply
+ 
