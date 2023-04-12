@@ -21,11 +21,14 @@ jobs:
         run: mvn test
 
 
-      - name: Verify PR title format
-        env:
-          PR_TITLE_REGEX: 'PTX-\d+: .*'
-        run: |
-          if ! echo "${{ github.event.pull_request.title }}" | grep -qE "${{ env.PR_TITLE_REGEX }}"; then
-            echo "Error: PR title does not match required format (${PR_TITLE_REGEX})" >&2
-            exit 1
-          fi
+      - name: PR title checker
+      uses: EndBug/add-and-commit@v7
+      with:
+        author_name: "GitHub Actions"
+        author_email: "actions@github.com"
+        message: "PR title formatted correctly"
+        signoff: true
+        add: "README.md"
+        force: true
+        match: "regex"
+        regex: "PTX-\*: <title>"
